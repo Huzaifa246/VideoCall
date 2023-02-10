@@ -36,35 +36,38 @@ export default function Controls(props) {
   };
 
   return (
-    <Grid container spacing={2} alignItems="center">
-      <Grid item>
-        <Button
-          variant="contained"
-          color={trackState.audio ? "primary" : "secondary"}
-          onClick={() => mute("audio")}
-        >
-          {trackState.audio ? <MicIcon /> : <MicOffIcon />}
-        </Button>
+    <>
+      <Grid container spacing={3} alignItems="center">
+        <Grid item>
+          <Button
+            variant="contained"
+            color={trackState.audio ? "primary" : "secondary"}
+            onClick={() => mute("audio")}
+          >
+            {trackState.audio ? <MicIcon /> : <MicOffIcon />}
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            variant="contained"
+            color={trackState.video ? "primary" : "secondary"}
+            onClick={() => mute("video")}
+          >
+            {trackState.video ? <VideocamIcon /> : <VideocamOffIcon />}
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            variant="contained"
+            color="error"
+            style={{ backgroundColor: "red", color: "white" }}
+            onClick={() => leaveChannel()}
+          >
+            Leave
+            <ExitToAppIcon />
+          </Button>
+        </Grid>
       </Grid>
-      <Grid item>
-        <Button
-          variant="contained"
-          color={trackState.video ? "primary" : "secondary"}
-          onClick={() => mute("video")}
-        >
-          {trackState.video ? <VideocamIcon /> : <VideocamOffIcon />}
-        </Button>
-      </Grid>
-      <Grid item>
-        <Button
-          variant="contained"
-          color="default"
-          onClick={() => leaveChannel()}
-        >
-          Leave
-          <ExitToAppIcon />
-        </Button>
-      </Grid>
-    </Grid>
+    </>
   );
 }
